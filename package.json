@@ -1,27 +1,29 @@
 {
-  "name": "admin-panel",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@popperjs/core": "^2.11.8",
-    "bootstrap": "^5.2.3",
-    "pinia": "^2.0.36",
-    "sass": "^1.62.1",
-    "vue": "^3.3.2",
-    "vue-router": "^4.2.0",
-    "vue3-perfect-scrollbar": "^1.6.1",
-    "vue3-transitions": "^1.0.0",
-    "vuetify": "^3.3.1",
-    "vuex": "^4.1.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^4.2.3",
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
-    "vite": "^4.3.5"
-  }
+    "name": "admin-panel",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "serve": "vue-cli-service serve"
+    },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "axios": "^1.4.0",
+        "bootstrap": "^5.2.3",
+        "pinia": "^2.0.36",
+        "sass": "^1.62.1",
+        "vue": "^3.3.2",
+        "vue-router": "^4.2.0",
+        "vue3-perfect-scrollbar": "^1.6.1",
+        "vue3-transitions": "^1.0.0",
+        "vuetify": "^3.3.1",
+        "vuex": "^4.1.0"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^4.2.3",
+        "@vitejs/plugin-vue-jsx": "^3.0.1",
+        "vite": "^4.3.5"
+    }
 }
