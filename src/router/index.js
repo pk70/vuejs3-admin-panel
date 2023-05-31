@@ -4,15 +4,16 @@ import Dashboard from "@/views/Dashboard.vue";
 import About from "../views/About.vue";
 import Layout from "../components/Layout/Layout.vue";
 import Login from "../components/login.vue";
+import { UseAuthStore } from '../stores/auth';
 
-const Authenticated = false;
-const routes = [
-    // {
-    //     path: "/",
-    //     name: "Login",
-    //     component: Login,
-    //     //redirect: "/dashboard"
-    // },
+let Authenticated = false;
+
+const routes = [{
+        path: "/:pathMatch(.*)*",
+        name: "NotFound",
+        redirect: "/login",
+        props: true,
+    },
     {
         path: "/login",
         name: "Login",
@@ -21,7 +22,6 @@ const routes = [
     },
     {
         path: "/dashboard",
-        name: "Dashboard",
         name: "Dashboard",
         meta: {
             requiresAuth: true
@@ -35,6 +35,13 @@ const routes = [
         }],
 
     },
+    {
+        path: "/logout",
+        name: "Logout",
+        meta: {
+            requiresAuth: true
+        }
+    }
 
 ];
 
@@ -44,7 +51,7 @@ const router = createRouter({
     routes,
 });
 router.beforeEach((to, from, next) => {
-
+    const Authenticated = UseAuthStore().$state.loggedIn;
     // Check for protected route
     if (to.meta.requiresAuth) {
         if (Authenticated) {
