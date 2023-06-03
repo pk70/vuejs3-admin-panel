@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Dashboard from "@/views/Dashboard.vue";
-import About from "../views/About.vue";
 import Layout from "../components/Layout/Layout.vue";
 import Login from "../components/login.vue";
 import { UseAuthStore } from '../stores/auth';
@@ -28,12 +26,18 @@ const routes = [{
         },
         component: Layout,
         children: [{
-            name: 'about',
-            path: 'about',
-            component: () =>
-                import ('../views/About.vue')
-        }],
-
+                name: 'about',
+                path: "/about",
+                component: () =>
+                    import ('../views/About.vue')
+            },
+            {
+                name: 'profile',
+                path: "/profile",
+                component: () =>
+                    import ('../components/Profile.vue')
+            }
+        ],
     },
     {
         path: "/logout",
@@ -52,16 +56,25 @@ const router = createRouter({
 });
 router.beforeEach((to, from, next) => {
     const Authenticated = UseAuthStore().$state.loggedIn;
+
     // Check for protected route
     if (to.meta.requiresAuth) {
         if (Authenticated) {
+            if (to.name == 'Logout') {
+                UseAuthStore().logout();
+            }
+
             next()
         } else {
             next('/login')
         }
 
     } else {
+        if (to.name == 'Login' && Authenticated) {
+            next('/dashboard');
+        }
         next()
     };
 });
+
 export default router

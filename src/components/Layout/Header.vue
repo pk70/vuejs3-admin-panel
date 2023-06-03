@@ -5,7 +5,7 @@
 <div class="d-flex align-items-center justify-content-between">
   <a href="/" class="logo d-flex align-items-center">
     <img src="../../assets/img/logo.png" alt="">
-    <span class="d-none d-lg-block">NiceAdmin</span>
+    <span class="d-none d-lg-block">My Admin</span>
   </a>
   <i class="bi bi-list toggle-sidebar-btn"></i>
 </div><!-- End Logo -->
@@ -176,7 +176,7 @@
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
-          <h6>Kevin Anderson</h6>
+          <h6></h6>
           <span>Web Designer</span>
         </li>
         <li>
@@ -184,7 +184,7 @@
         </li>
 
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+          <a class="dropdown-item d-flex align-items-center" href="/profile">
             <i class="bi bi-person"></i>
             <span>My Profile</span>
           </a>
@@ -227,3 +227,6 @@
 </nav>End Icons Navigation
 </header>
 </template>
+<script setup>
+
+</script>
