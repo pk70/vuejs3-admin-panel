@@ -23,7 +23,8 @@ export const UseAuthStore = defineStore("authUser", {
                 localStorage.setItem("auth_users", JSON.stringify(response.data.user));
                 axios.defaults.headers.common["Authorization"] = token;
 
-                router.push('/dashboard');
+                router.push({ name: "Dashboard" });
+                location.reload();
                 //await this.ftechUser();
             }
         },

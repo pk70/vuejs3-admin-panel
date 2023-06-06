@@ -68,11 +68,11 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <input
+                    <button
                       class="btn btn-primary w-100"
-                      type="submit"
-                      value="Login"
-                    />
+                      type="submit">
+                     <span v-show="spinner==true" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="false"></span>Login</button>
+                   
                   </div>
                   <div class="col-12">
                     <p class="small mb-0">
@@ -97,21 +97,24 @@ import { useToast } from "vue-toastification";
 import router from '../router';
 // import CubeSpin from 'vue-loading-spinner/components/Cube'
 const toast = useToast();
-//let isLoading = false;
+const spinner = ref(false);
 const form = ref({
   email: "",
   password: "",
 });
 const loginM = async () => {
+  
+  spinner.value = true;
   UseAuthStore()
     .login(form.value)
     .then((res) => {
       // assign state users with response data
-     // isLoading = true;
+      spinner.value = false;
       router.push({ name: "Dashboard" });
     })
     .catch((error) => {
-      console.log(error)
+      console.log(error);
+      spinner.value = false;
       if (error && error.response.status == 422) {
         toast.error("Email and password are invalid", {
           timeout: 3000,

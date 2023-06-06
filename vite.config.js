@@ -9,8 +9,18 @@ import { Server } from 'node:http'
 export default defineConfig({
 
     plugins: [vue(), vueJsx()],
+
     server: {
-        port: 3000
+        host: "localhost",
+        port: 3000,
+        //strictPort: true,
+        hmr: {
+            port: 3000,
+        },
+        watch: {
+            ignored: ['!**/node_modules/your-package-name/**'],
+            usePolling: true,
+        },
     },
     resolve: {
         alias: {

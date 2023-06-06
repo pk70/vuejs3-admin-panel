@@ -48,7 +48,5 @@
    UseAuthStore().$state.authUser
 );
  
-
- 
   </script>
 
